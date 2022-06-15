@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  go:
+    image: dqneo/ubuntu-build-essential:go
+    platform: linux/x86_64
+    tty: true
+    stdin_open: true
+    volumes:
+      - ./:/go/src
+    working_dir: /go/src
+    cap_add:
+      - SYS_PTRACE
+    security_opt:
+      - seccomp=unconfined
